@@ -15,11 +15,10 @@ namespace editorfile
 {
     public partial class Form1 : Form
     {
-<<<<<<< HEAD
-        string filepath;
-=======
+
+
         string sFileName;
->>>>>>> 61a10a32b3365dbe36e26388d8414753dd36d6d7
+
         public Form1()
         {
             InitializeComponent();
@@ -44,16 +43,8 @@ namespace editorfile
 
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
-<<<<<<< HEAD
-                this.filepath = choofdlog.FileName;
-                labelNomeFile.Text = filepath.ToString();
-            }
-
-            
-        }
-        
-=======
-                sFileName = choofdlog.FileName;         
+                sFileName = choofdlog.FileName;
+                labelNomeFile.Text = sFileName.ToString();
             }
 
             string line = null;
@@ -73,7 +64,7 @@ namespace editorfile
         }
         
 
->>>>>>> 61a10a32b3365dbe36e26388d8414753dd36d6d7
+
         private void buttonIndenta_Click(object sender, EventArgs e)
         {
 
