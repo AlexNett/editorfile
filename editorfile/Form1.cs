@@ -7,12 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System;
+using System.IO;
+using System.Collections.Generic;
 
 namespace editorfile
 {
     public partial class Form1 : Form
     {
+<<<<<<< HEAD
         string filepath;
+=======
+        string sFileName;
+>>>>>>> 61a10a32b3365dbe36e26388d8414753dd36d6d7
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +44,7 @@ namespace editorfile
 
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
+<<<<<<< HEAD
                 this.filepath = choofdlog.FileName;
                 labelNomeFile.Text = filepath.ToString();
             }
@@ -44,6 +52,28 @@ namespace editorfile
             
         }
         
+=======
+                sFileName = choofdlog.FileName;         
+            }
+
+            string line = null;
+            string text = null;
+            List<string> lines = new List<string>();
+            StreamReader reader = new StreamReader(sFileName);
+
+            // read all the lines in the file and store them in the List 
+            while ((line = reader.ReadLine()) != null)
+            {
+                text = text + line + "\r\n";
+            }
+
+            reader.Close();
+            textBoxFile.Text = text;
+
+        }
+        
+
+>>>>>>> 61a10a32b3365dbe36e26388d8414753dd36d6d7
         private void buttonIndenta_Click(object sender, EventArgs e)
         {
 
