@@ -26,5 +26,25 @@ namespace editorfile
         {
 
         }
+
+        private void buttonFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = true;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;         
+            }
+        }
+        
+        
+
+        private void buttonIndenta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

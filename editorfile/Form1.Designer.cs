@@ -42,6 +42,7 @@
             this.buttonIndenta.TabIndex = 0;
             this.buttonIndenta.Text = "button1";
             this.buttonIndenta.UseVisualStyleBackColor = true;
+            this.buttonIndenta.Click += new System.EventHandler(this.buttonIndenta_Click);
             // 
             // textBoxFile
             // 
@@ -69,6 +70,7 @@
             this.buttonFile.TabIndex = 3;
             this.buttonFile.Text = "button2";
             this.buttonFile.UseVisualStyleBackColor = true;
+            this.buttonFile.Click += new System.EventHandler(this.buttonFile_Click);
             // 
             // Form1
             // 
