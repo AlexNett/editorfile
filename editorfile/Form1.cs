@@ -24,20 +24,16 @@ namespace editorfile
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void buttonFile_Click(object sender, EventArgs e)
+
+        private void apriToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.Filter = "(*.cs*)|*.cs*";
             choofdlog.FilterIndex = 1;
             choofdlog.Multiselect = true;
 
@@ -60,17 +56,11 @@ namespace editorfile
 
             reader.Close();
             textBoxFile.Text = text;
-
-        }
-        
-
-
-        private void buttonIndenta_Click(object sender, EventArgs e)
-        {
-
+            textBoxFile.Enabled = true;
+            
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (File.Exists(sFileName))
             {
@@ -79,6 +69,11 @@ namespace editorfile
                     sw.Write(textBoxFile.Text);
                 }
             }
+        }
+
+        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -28,90 +28,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonIndenta = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.labelNomeFile = new System.Windows.Forms.Label();
-            this.buttonFile = new System.Windows.Forms.Button();
             this.textBoxFile = new System.Windows.Forms.RichTextBox();
-            this.buttonSave = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.apriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salvaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.esciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.indentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonIndenta
-            // 
-            this.buttonIndenta.Location = new System.Drawing.Point(74, 7);
-            this.buttonIndenta.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonIndenta.Name = "buttonIndenta";
-            this.buttonIndenta.Size = new System.Drawing.Size(130, 32);
-            this.buttonIndenta.TabIndex = 0;
-            this.buttonIndenta.Text = "Indenta";
-            this.buttonIndenta.UseVisualStyleBackColor = true;
-            this.buttonIndenta.Click += new System.EventHandler(this.buttonIndenta_Click);
             // 
             // labelNomeFile
             // 
             this.labelNomeFile.AutoSize = true;
-            this.labelNomeFile.Location = new System.Drawing.Point(11, 402);
-            this.labelNomeFile.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNomeFile.Location = new System.Drawing.Point(17, 495);
             this.labelNomeFile.Name = "labelNomeFile";
-            this.labelNomeFile.Size = new System.Drawing.Size(51, 13);
+            this.labelNomeFile.Size = new System.Drawing.Size(0, 17);
             this.labelNomeFile.TabIndex = 2;
-            this.labelNomeFile.Text = "Nome file";
-            // 
-            // buttonFile
-            // 
-            this.buttonFile.Location = new System.Drawing.Point(270, 7);
-            this.buttonFile.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.buttonFile.Name = "buttonFile";
-            this.buttonFile.Size = new System.Drawing.Size(136, 32);
-            this.buttonFile.TabIndex = 3;
-            this.buttonFile.Text = "File";
-            this.buttonFile.UseVisualStyleBackColor = true;
-            this.buttonFile.Click += new System.EventHandler(this.buttonFile_Click);
             // 
             // textBoxFile
             // 
-            this.textBoxFile.Location = new System.Drawing.Point(12, 45);
+            this.textBoxFile.Enabled = false;
+            this.textBoxFile.Location = new System.Drawing.Point(20, 32);
+            this.textBoxFile.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxFile.Name = "textBoxFile";
-            this.textBoxFile.Size = new System.Drawing.Size(661, 335);
+            this.textBoxFile.Size = new System.Drawing.Size(880, 459);
             this.textBoxFile.TabIndex = 4;
             this.textBoxFile.Text = "";
-            this.textBoxFile.Click += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // buttonSave
+            // menuStrip1
             // 
-            this.buttonSave.Location = new System.Drawing.Point(480, 7);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(136, 32);
-            this.buttonSave.TabIndex = 5;
-            this.buttonSave.Text = "Salva";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.modificaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(913, 28);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.apriToolStripMenuItem,
+            this.salvaToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.esciToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // apriToolStripMenuItem
+            // 
+            this.apriToolStripMenuItem.Name = "apriToolStripMenuItem";
+            this.apriToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
+            this.apriToolStripMenuItem.Text = "Apri";
+            this.apriToolStripMenuItem.Click += new System.EventHandler(this.apriToolStripMenuItem_Click);
+            // 
+            // salvaToolStripMenuItem
+            // 
+            this.salvaToolStripMenuItem.Name = "salvaToolStripMenuItem";
+            this.salvaToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
+            this.salvaToolStripMenuItem.Text = "Salva";
+            this.salvaToolStripMenuItem.Click += new System.EventHandler(this.salvaToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(116, 6);
+            // 
+            // esciToolStripMenuItem
+            // 
+            this.esciToolStripMenuItem.Name = "esciToolStripMenuItem";
+            this.esciToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
+            this.esciToolStripMenuItem.Text = "Esci";
+            this.esciToolStripMenuItem.Click += new System.EventHandler(this.esciToolStripMenuItem_Click);
+            // 
+            // modificaToolStripMenuItem
+            // 
+            this.modificaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.indentaToolStripMenuItem});
+            this.modificaToolStripMenuItem.Name = "modificaToolStripMenuItem";
+            this.modificaToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.modificaToolStripMenuItem.Text = "Modifica";
+            // 
+            // indentaToolStripMenuItem
+            // 
+            this.indentaToolStripMenuItem.Name = "indentaToolStripMenuItem";
+            this.indentaToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.indentaToolStripMenuItem.Text = "Indenta ";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 424);
-            this.Controls.Add(this.buttonSave);
+            this.ClientSize = new System.Drawing.Size(913, 522);
             this.Controls.Add(this.textBoxFile);
-            this.Controls.Add(this.buttonFile);
             this.Controls.Add(this.labelNomeFile);
-            this.Controls.Add(this.buttonIndenta);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
-            this.Text = "File editor";
+            this.Text = "C# File Editor";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonIndenta;
         private System.Windows.Forms.Label labelNomeFile;
-        private System.Windows.Forms.Button buttonFile;
         private System.Windows.Forms.RichTextBox textBoxFile;
-        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem apriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salvaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem indentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem esciToolStripMenuItem;
     }
 }
 
