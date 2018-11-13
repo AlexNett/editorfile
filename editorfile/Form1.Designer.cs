@@ -32,6 +32,7 @@
             this.labelNomeFile = new System.Windows.Forms.Label();
             this.buttonFile = new System.Windows.Forms.Button();
             this.textBoxFile = new System.Windows.Forms.RichTextBox();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonIndenta
@@ -48,7 +49,7 @@
             // labelNomeFile
             // 
             this.labelNomeFile.AutoSize = true;
-            this.labelNomeFile.Location = new System.Drawing.Point(534, 17);
+            this.labelNomeFile.Location = new System.Drawing.Point(11, 402);
             this.labelNomeFile.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNomeFile.Name = "labelNomeFile";
             this.labelNomeFile.Size = new System.Drawing.Size(51, 13);
@@ -70,16 +71,26 @@
             // 
             this.textBoxFile.Location = new System.Drawing.Point(12, 45);
             this.textBoxFile.Name = "textBoxFile";
-            this.textBoxFile.Size = new System.Drawing.Size(661, 367);
+            this.textBoxFile.Size = new System.Drawing.Size(661, 335);
             this.textBoxFile.TabIndex = 4;
             this.textBoxFile.Text = "";
             this.textBoxFile.Click += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(480, 7);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(136, 32);
+            this.buttonSave.TabIndex = 5;
+            this.buttonSave.Text = "Salva";
+            this.buttonSave.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 424);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxFile);
             this.Controls.Add(this.buttonFile);
             this.Controls.Add(this.labelNomeFile);
@@ -99,6 +110,7 @@
         private System.Windows.Forms.Label labelNomeFile;
         private System.Windows.Forms.Button buttonFile;
         private System.Windows.Forms.RichTextBox textBoxFile;
+        private System.Windows.Forms.Button buttonSave;
     }
 }
 
