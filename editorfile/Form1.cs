@@ -69,5 +69,16 @@ namespace editorfile
         {
 
         }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(sFileName))
+            {
+                using (StreamWriter sw = new StreamWriter(sFileName))
+                {
+                    sw.Write(textBoxFile.Text);
+                }
+            }
+        }
     }
 }

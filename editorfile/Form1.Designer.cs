@@ -84,6 +84,7 @@
             this.buttonSave.TabIndex = 5;
             this.buttonSave.Text = "Salva";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // Form1
             // 
