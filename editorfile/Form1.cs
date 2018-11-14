@@ -34,7 +34,7 @@ namespace editorfile
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void salvaFileConNome()
         {
 
         }
@@ -74,17 +74,12 @@ namespace editorfile
 
         private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            salvaFile();
+            this.salvaFile();
         }
 
         private void esciToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void indentaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -138,11 +133,6 @@ namespace editorfile
             textBoxFile.Enabled = true;
         }
 
-        private void textBoxFile_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (textBoxFile.Text != "" && sFileName != null)
@@ -162,14 +152,22 @@ namespace editorfile
                     //code for Cancel
                 }
             }
-            else {
+            else if (textBoxFile.Text != "" && sFileName == null)
+            {
+                this.salvaFileConNome();
                 textBoxFile.Clear();
+                labelNomeFile.Text = null;
             }
         }
 
         private void informazioniSuCFileEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Versione 1.0 - 2018\r\nMattia Marilli, Niccolò Ciuffi, Elio Kanizsa, Stefano Bianchini");
+        }
+
+        private void salvaConNomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.salvaFileConNome();
         }
     }
 }
