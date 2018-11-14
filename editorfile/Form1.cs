@@ -34,9 +34,58 @@ namespace editorfile
             }
         }
 
+        private void newFile(bool fileEsistente) {
+
+            String textSave;
+
+            if (fileEsistente == false)
+                textSave = "Salvare le modifiche in un nuovo file?";
+            else
+                textSave = "Salvare le modifiche a " + sFileName + "?";
+
+            DialogResult result = MessageBox.Show(textSave, "C# Editor FIle", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                if (fileEsistente == true)
+                {
+                    salvaFile();
+                    textBoxFile.Clear();
+                    labelNomeFile.Text = null;
+                }
+                else {
+                    this.salvaFileConNome();
+                    textBoxFile.Clear();
+                    labelNomeFile.Text = null;
+                }
+            }
+            else if (result == DialogResult.No)
+            {
+                textBoxFile.Clear();
+                labelNomeFile.Text = null;
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                //code for Cancel
+            }
+        }
+
         private void salvaFileConNome()
         {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "(*.cs*)|*.cs*";
+            saveFile.FilterIndex = 1;
 
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                sFileName = saveFile.FileName;
+                labelNomeFile.Text = sFileName.ToString();
+            }
+
+            if (sFileName != null)
+            {
+                StreamWriter newFile = new StreamWriter(sFileName);
+                newFile.Write(textBoxFile.Text);
+            }
         }
 
 
@@ -137,26 +186,10 @@ namespace editorfile
         {
             if (textBoxFile.Text != "" && sFileName != null)
             {
-                DialogResult result = MessageBox.Show("Salvare le modifiche a " + sFileName + "?", "C# Editor FIle", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    salvaFile();
-                    textBoxFile.Clear();
-                }
-                else if (result == DialogResult.No)
-                {
-                    textBoxFile.Clear();
-                }
-                else if (result == DialogResult.Cancel)
-                {
-                    //code for Cancel
-                }
+                newFile(true);
             }
-            else if (textBoxFile.Text != "" && sFileName == null)
-            {
-                this.salvaFileConNome();
-                textBoxFile.Clear();
-                labelNomeFile.Text = null;
+            else {
+                newFile(false);
             }
         }
 
