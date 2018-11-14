@@ -55,6 +55,7 @@
             // 
             // textBoxFile
             // 
+            this.textBoxFile.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxFile.Location = new System.Drawing.Point(15, 26);
             this.textBoxFile.Name = "textBoxFile";
             this.textBoxFile.Size = new System.Drawing.Size(658, 374);
