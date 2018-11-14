@@ -24,6 +24,16 @@ namespace editorfile
             InitializeComponent();
         }
 
+        public void salvaFile() {
+            if (File.Exists(sFileName))
+            {
+                using (StreamWriter sw = new StreamWriter(sFileName))
+                {
+                    sw.Write(textBoxFile.Text);
+                }
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -64,13 +74,7 @@ namespace editorfile
 
         private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (File.Exists(sFileName))
-            {
-                using (StreamWriter sw = new StreamWriter(sFileName))
-                {
-                    sw.Write(textBoxFile.Text);
-                }
-            }
+            salvaFile();
         }
 
         private void esciToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,6 +136,35 @@ namespace editorfile
             reader.Close();
             textBoxFile.Text = text;
             textBoxFile.Enabled = true;
+        }
+
+        private void textBoxFile_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (textBoxFile.Text != "" && sFileName != null)
+            {
+                DialogResult result = MessageBox.Show("Salvare le modifiche a " + sFileName + "?", "C# Editor FIle", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    salvaFile();
+                    textBoxFile.Clear();
+                }
+                else if (result == DialogResult.No)
+                {
+                    textBoxFile.Clear();
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    //code for Cancel
+                }
+            }
+            else {
+                textBoxFile.Clear();
+            }
         }
     }
 }
