@@ -166,5 +166,10 @@ namespace editorfile
                 textBoxFile.Clear();
             }
         }
+
+        private void informazioniSuCFileEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Versione 1.0 - 2018\r\nMattia Marilli, Niccolò Ciuffi, Elio Kanizsa, Stefano Bianchini");
+        }
     }
 }
