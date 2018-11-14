@@ -39,6 +39,7 @@
             this.esciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salvaConNomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +79,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.apriToolStripMenuItem,
             this.salvaToolStripMenuItem,
+            this.salvaConNomeToolStripMenuItem,
             this.toolStripSeparator1,
             this.esciToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -89,7 +91,7 @@
             // 
             this.apriToolStripMenuItem.Name = "apriToolStripMenuItem";
             this.apriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.apriToolStripMenuItem.Text = "Apri";
+            this.apriToolStripMenuItem.Text = "Apri...";
             this.apriToolStripMenuItem.Click += new System.EventHandler(this.apriToolStripMenuItem_Click);
             // 
             // salvaToolStripMenuItem
@@ -122,9 +124,15 @@
             // indentaToolStripMenuItem
             // 
             this.indentaToolStripMenuItem.Name = "indentaToolStripMenuItem";
-            this.indentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.indentaToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.indentaToolStripMenuItem.Text = "Indenta ";
             this.indentaToolStripMenuItem.Click += new System.EventHandler(this.indentaToolStripMenuItem_Click);
+            // 
+            // salvaConNomeToolStripMenuItem
+            // 
+            this.salvaConNomeToolStripMenuItem.Name = "salvaConNomeToolStripMenuItem";
+            this.salvaConNomeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salvaConNomeToolStripMenuItem.Text = "Salva con nome...";
             // 
             // Form1
             // 
@@ -158,6 +166,7 @@
         private System.Windows.Forms.ToolStripMenuItem indentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem esciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salvaConNomeToolStripMenuItem;
     }
 }
 
