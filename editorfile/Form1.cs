@@ -95,6 +95,7 @@ namespace editorfile
             // read all the lines in the file and store them in the List 
             while ((line = reader.ReadLine()) != null)
             {
+                line = line.Trim();
                 if (line.Contains("{"))
                 {
                     if (parentesiAperta == true) {
@@ -107,7 +108,7 @@ namespace editorfile
                     text = text + line + "\r\n";
                     parentesiAperta = true;
                 }
-                else if (line == "}")
+                else if (line.Contains("}"))
                 {
                     indentLevel -= 4;
                     for (int i = 0; i < indentLevel; i++)
