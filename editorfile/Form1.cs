@@ -123,7 +123,10 @@ namespace editorfile
 
         private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.salvaFile();
+            if (sFileName != null)
+                this.salvaFile();
+            else
+                this.salvaFileConNome();
         }
 
         private void esciToolStripMenuItem_Click(object sender, EventArgs e)
