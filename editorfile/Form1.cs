@@ -16,7 +16,6 @@ namespace editorfile
     public partial class Form1 : Form
     {
 
-
         string sFileName;
 
         public Form1()
@@ -88,8 +87,7 @@ namespace editorfile
             }
         }
 
-
-        private void apriToolStripMenuItem_Click(object sender, EventArgs e)
+        private void apriFile()
         {
             OpenFileDialog choofdlog = new OpenFileDialog();
             choofdlog.Filter = "(*.cs*)|*.cs*";
@@ -118,23 +116,9 @@ namespace editorfile
                 textBoxFile.Text = text;
                 textBoxFile.Enabled = true;
             }
-            
         }
 
-        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (sFileName != null)
-                this.salvaFile();
-            else
-                this.salvaFileConNome();
-        }
-
-        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void indentaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void indenta()
         {
             string line = null;
             string text = null;
@@ -149,7 +133,8 @@ namespace editorfile
                 line = line.Trim();
                 if (line.Contains("{"))
                 {
-                    if (parentesiAperta == true) {
+                    if (parentesiAperta == true)
+                    {
                         for (int i = 0; i < indentLevel; i++)
                         {
                             text = text + " ";
@@ -168,7 +153,8 @@ namespace editorfile
                     }
                     text = text + line + "\r\n";
                 }
-                else {
+                else
+                {
                     for (int i = 0; i < indentLevel; i++)
                     {
                         text = text + " ";
@@ -185,6 +171,29 @@ namespace editorfile
             textBoxFile.Enabled = true;
         }
 
+        private void apriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.apriFile();
+        }
+
+        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sFileName != null)
+                this.salvaFile();
+            else
+                this.salvaFileConNome();
+        }
+
+        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void indentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.indenta();
+        }
+
         private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (textBoxFile.Text != "" && sFileName != null)
@@ -198,7 +207,7 @@ namespace editorfile
 
         private void informazioniSuCFileEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Versione 1.0 - 2018\r\nMattia Marilli, Niccolò Ciuffi, Elio Kanizsa, Stefano Bianchini");
+            MessageBox.Show("                                   Versione 1.0 - 2018\r\nMattia Marilli, Niccolò Ciuffi, Elio Kanizsa, Stefano Bianchini");
         }
 
         private void salvaConNomeToolStripMenuItem_Click(object sender, EventArgs e)
