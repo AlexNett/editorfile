@@ -92,7 +92,7 @@ namespace editorfile
             OpenFileDialog choofdlog = new OpenFileDialog();
             choofdlog.Filter = "(*.cs*)|*.cs*";
             choofdlog.FilterIndex = 1;
-            choofdlog.Multiselect = true;
+            choofdlog.Multiselect = false;
 
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
