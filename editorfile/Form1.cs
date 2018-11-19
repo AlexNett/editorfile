@@ -122,7 +122,7 @@ namespace editorfile
         {
             string line = null;
             string text = null;
-            byte indentLevel = 0;
+            int indentLevel = 0;
             bool parentesiAperta = false;
             List<string> lines = new List<string>();
             StreamReader reader = new StreamReader(sFileName);
@@ -155,6 +155,7 @@ namespace editorfile
                 }
                 else
                 {
+
                     for (int i = 0; i < indentLevel; i++)
                     {
                         text = text + " ";
@@ -164,6 +165,8 @@ namespace editorfile
 
                 if (indentLevel == 0)
                     parentesiAperta = false;
+                else if (indentLevel < 0)
+                    indentLevel = 0;
             }
 
             reader.Close();
