@@ -18,7 +18,7 @@ namespace editorfile
 
         string sFileName;
 
-        public Form1()
+		public Form1()
         {
             InitializeComponent();
         }
@@ -217,5 +217,22 @@ namespace editorfile
         {
             this.salvaFileConNome();
         }
-    }
+
+		private void textBoxFile_SelectionChanged(object sender, EventArgs e)
+		{
+			SetLineNumbers();
+		}
+
+		private void SetLineNumbers()
+		{
+			var kk = textBoxFile.Lines.Count();
+			txt_nLine.Clear();
+			string all = "";
+			for (int i = 1; i < kk+1; i++)
+			{
+				all += i + "\n";
+			}
+			txt_nLine.Text += all;
+		}
+	}
 }
