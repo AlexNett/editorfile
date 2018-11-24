@@ -23,17 +23,67 @@ namespace editorfile
             InitializeComponent();
         }
 
-        public void salvaFile() {
-            if (File.Exists(sFileName))
+        #region userinterface
+
+        // File > Nuovo
+        private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (numberedRTB1.RichTextBox.Text != "" && sFileName != null)
             {
-                using (StreamWriter sw = new StreamWriter(sFileName))
-                {
-                    sw.Write(numberedRTB1.RichTextBox.Text);
-                }
+                newFile(true);
+            }
+            else
+            {
+                newFile(false);
             }
         }
 
-        private void newFile(bool fileEsistente) {
+        // File > Apri
+        private void apriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.apriFile();
+        }
+
+        // File > Salva
+        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sFileName != null)
+                this.salvaFile();
+            else
+                this.salvaFileConNome();
+        }
+
+        // File > Salva con nome
+        private void salvaConNomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.salvaFileConNome();
+        }
+
+        // File > Esci
+        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // Modifica > Indenta
+        private void indentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.indenta();
+        }
+
+        // ? > Info
+        private void informazioniSuCFileEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("                                   Versione 1.0 - 2018\r\nMattia Marilli, Niccolò Ciuffi, Elio Kanizsa, Stefano Bianchini");
+        }
+
+        #endregion
+
+        /*=====*\
+        | NUOVO |
+        \*=====*/
+        private void newFile(bool fileEsistente)
+        {
 
             String textSave;
 
@@ -51,7 +101,8 @@ namespace editorfile
                     numberedRTB1.RichTextBox.Clear();
                     labelNomeFile.Text = null;
                 }
-                else {
+                else
+                {
                     this.salvaFileConNome();
                     numberedRTB1.RichTextBox.Clear();
                     labelNomeFile.Text = null;
@@ -68,6 +119,22 @@ namespace editorfile
             }
         }
 
+        /*====*\
+        | SAVE |
+        \*====*/
+        public void salvaFile() {
+            if (File.Exists(sFileName))
+            {
+                using (StreamWriter sw = new StreamWriter(sFileName))
+                {
+                    sw.Write(numberedRTB1.RichTextBox.Text);
+                }
+            }
+        }
+
+        /*=======*\
+        | SAVE AS |
+        \*=======*/
         private void salvaFileConNome()
         {
             SaveFileDialog saveFile = new SaveFileDialog();
@@ -86,12 +153,15 @@ namespace editorfile
                 newFile.Write(numberedRTB1.RichTextBox.Text);
             }
         }
-
+        
+        /*====*\
+        | APRI |
+        \*====*/
         private void apriFile()
         {
             OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.Filter = "(*.cs*)|*.cs*";
-            choofdlog.FilterIndex = 1;
+            choofdlog.DefaultExt = "cs";
+            choofdlog.AddExtension = true;
             choofdlog.Multiselect = false;
 
             if (choofdlog.ShowDialog() == DialogResult.OK)
@@ -118,6 +188,9 @@ namespace editorfile
             }
         }
 
+        /*=======*\
+        | INDENTA |
+        \*=======*/
         private void indenta()
         {
             string line = null;
@@ -174,48 +247,5 @@ namespace editorfile
             numberedRTB1.RichTextBox.Enabled = true;
         }
 
-        private void apriToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.apriFile();
-        }
-
-        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (sFileName != null)
-                this.salvaFile();
-            else
-                this.salvaFileConNome();
-        }
-
-        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void indentaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.indenta();
-        }
-
-        private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (numberedRTB1.RichTextBox.Text != "" && sFileName != null)
-            {
-                newFile(true);
-            }
-            else {
-                newFile(false);
-            }
-        }
-
-        private void informazioniSuCFileEditorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("                                   Versione 1.0 - 2018\r\nMattia Marilli, Niccolò Ciuffi, Elio Kanizsa, Stefano Bianchini");
-        }
-
-        private void salvaConNomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.salvaFileConNome();
-        }
 	}
 }
