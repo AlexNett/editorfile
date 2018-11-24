@@ -29,7 +29,7 @@ namespace editorfile
             {
                 using (StreamWriter sw = new StreamWriter(sFileName))
                 {
-                    sw.Write(textBoxFile.Text);
+                    sw.Write(numberedRTB1.RichTextBox.Text);
                 }
             }
         }
@@ -49,18 +49,18 @@ namespace editorfile
                 if (fileEsistente == true)
                 {
                     salvaFile();
-                    textBoxFile.Clear();
+                    numberedRTB1.RichTextBox.Clear();
                     labelNomeFile.Text = null;
                 }
                 else {
                     this.salvaFileConNome();
-                    textBoxFile.Clear();
+                    numberedRTB1.RichTextBox.Clear();
                     labelNomeFile.Text = null;
                 }
             }
             else if (result == DialogResult.No)
             {
-                textBoxFile.Clear();
+                numberedRTB1.RichTextBox.Clear();
                 labelNomeFile.Text = null;
             }
             else if (result == DialogResult.Cancel)
@@ -84,7 +84,7 @@ namespace editorfile
             if (sFileName != null)
             {
                 StreamWriter newFile = new StreamWriter(sFileName);
-                newFile.Write(textBoxFile.Text);
+                newFile.Write(numberedRTB1.RichTextBox.Text);
             }
         }
 
@@ -115,8 +115,8 @@ namespace editorfile
                 }
 
                 reader.Close();
-                textBoxFile.Text = text;
-                textBoxFile.Enabled = true;
+                numberedRTB1.RichTextBox.Text = text;
+                numberedRTB1.RichTextBox.Enabled = true;
             }
             
         }
@@ -178,13 +178,13 @@ namespace editorfile
             }
 
             reader.Close();
-            textBoxFile.Text = text;
-            textBoxFile.Enabled = true;
+            numberedRTB1.RichTextBox.Text = text;
+            numberedRTB1.RichTextBox.Enabled = true;
         }
 
         private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (textBoxFile.Text != "" && sFileName != null)
+            if (numberedRTB1.RichTextBox.Text != "" && sFileName != null)
             {
                 newFile(true);
             }
