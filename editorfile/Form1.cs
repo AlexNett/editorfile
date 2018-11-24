@@ -16,10 +16,9 @@ namespace editorfile
     public partial class Form1 : Form
     {
 
-
         string sFileName;
 
-        public Form1()
+		public Form1()
         {
             InitializeComponent();
         }
@@ -88,13 +87,12 @@ namespace editorfile
             }
         }
 
-
-        private void apriToolStripMenuItem_Click(object sender, EventArgs e)
+        private void apriFile()
         {
             OpenFileDialog choofdlog = new OpenFileDialog();
             choofdlog.Filter = "(*.cs*)|*.cs*";
             choofdlog.FilterIndex = 1;
-            choofdlog.Multiselect = true;
+            choofdlog.Multiselect = false;
 
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {
@@ -118,24 +116,13 @@ namespace editorfile
                 numberedRTB1.RichTextBox.Text = text;
                 numberedRTB1.RichTextBox.Enabled = true;
             }
-            
         }
 
-        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.salvaFile();
-        }
-
-        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void indentaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void indenta()
         {
             string line = null;
             string text = null;
-            byte indentLevel = 0;
+            int indentLevel = 0;
             bool parentesiAperta = false;
             List<string> lines = new List<string>();
             StreamReader reader = new StreamReader(sFileName);
@@ -146,7 +133,8 @@ namespace editorfile
                 line = line.Trim();
                 if (line.Contains("{"))
                 {
-                    if (parentesiAperta == true) {
+                    if (parentesiAperta == true)
+                    {
                         for (int i = 0; i < indentLevel; i++)
                         {
                             text = text + " ";
@@ -165,7 +153,9 @@ namespace editorfile
                     }
                     text = text + line + "\r\n";
                 }
-                else {
+                else
+                {
+
                     for (int i = 0; i < indentLevel; i++)
                     {
                         text = text + " ";
@@ -175,11 +165,36 @@ namespace editorfile
 
                 if (indentLevel == 0)
                     parentesiAperta = false;
+                else if (indentLevel < 0)
+                    indentLevel = 0;
             }
 
             reader.Close();
             numberedRTB1.RichTextBox.Text = text;
             numberedRTB1.RichTextBox.Enabled = true;
+        }
+
+        private void apriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.apriFile();
+        }
+
+        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sFileName != null)
+                this.salvaFile();
+            else
+                this.salvaFileConNome();
+        }
+
+        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void indentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.indenta();
         }
 
         private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -195,12 +210,12 @@ namespace editorfile
 
         private void informazioniSuCFileEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Versione 1.0 - 2018\r\nMattia Marilli, Niccolò Ciuffi, Elio Kanizsa, Stefano Bianchini");
+            MessageBox.Show("                                   Versione 1.0 - 2018\r\nMattia Marilli, Niccolò Ciuffi, Elio Kanizsa, Stefano Bianchini");
         }
 
         private void salvaConNomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.salvaFileConNome();
         }
-    }
+	}
 }
